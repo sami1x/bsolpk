@@ -91,7 +91,7 @@ const LoginForm = () => {
         {loginError && "Username or password incorrect"}
       </div>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
           <FormField
             control={form.control}
             name="username"
@@ -161,7 +161,7 @@ const LoginForm = () => {
               </FormItem>
             )}
           />
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center pt-4">
             <Button
               className="w-full bg-[#870808] hover:bg-[#053976] transition"
               type="submit"

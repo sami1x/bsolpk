@@ -4,9 +4,9 @@ import LoginForm from "@/components/LoginForm";
 const Login = () => {
   return (
     <div className=" bg-[url(/bg.jpeg)] h-screen bg-cover bg-center">
-      <div className="w-full h-full flex items-center justify-center">
-        <div className="max-w-[450px] w-full bg-white p-10 rounded-2xl bg-opacity-80">
-          <h1 className="font-forheading text-[#053976] text-4xl font-medium text-center">
+      <div className="w-full h-full flex items-center justify-center p-6">
+        <div className="max-w-[450px] w-full bg-white p-8 md:p-10 rounded-2xl bg-opacity-80">
+          <h1 className="font-forheading text-[#053976] md:text-4xl text-3xl font-medium text-center">
             Blackstone International Teaching Centre
           </h1>
           <h1 className="font-forheading text-[#870808] text-2xl font-semibold text-center py-3">
