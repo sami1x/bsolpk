@@ -24,11 +24,14 @@ import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { AiFillEye } from "react-icons/ai";
+import { AiFillEyeInvisible } from "react-icons/ai";
+
 console.log("Backend url", import.meta.env.VITE_BACKEND);
 
 const LoginForm = () => {
   const navigate = useNavigate();
-
+  const [passwordVisible, setPasswordVisible] = useState(false);
   const [selectedValue, setSelectedValue] = useState("Role");
   const [loading, setLoading] = useState(false);
   const [loginError, setLoginError] = useState(null);
@@ -114,17 +117,32 @@ const LoginForm = () => {
             control={form.control}
             name="password"
             render={({ field }) => (
-              <FormItem>
+              <FormItem className="relative">
                 <FormLabel className="font-fortext">Password</FormLabel>
                 <FormControl>
                   <Input
-                    className="border border-black border-solid"
+                    type={passwordVisible ? "text" : "password"}
+                    className="border border-black border-solid pr-10"
                     onFocus={() => setLoginError(null)}
                     placeholder="Password"
                     {...field}
                   />
                 </FormControl>
                 <FormMessage className="font-fortext" />
+                <div
+                  className="absolute right-[13px] top-[35px] cursor-pointer"
+                  onClick={() => {
+                    setPasswordVisible((e) => {
+                      return !e;
+                    });
+                  }}
+                >
+                  {passwordVisible ? (
+                    <AiFillEye className="text-neutral-700" />
+                  ) : (
+                    <AiFillEyeInvisible className="text-neutral-700" />
+                  )}
+                </div>
               </FormItem>
             )}
           />
@@ -166,7 +184,7 @@ const LoginForm = () => {
               className="w-full bg-[#870808] hover:bg-[#053976] transition"
               type="submit"
             >
-              {loading ? "loading..." : "Login"}
+              {loading ? "Validating..." : "Login"}
             </Button>
           </div>
         </form>
